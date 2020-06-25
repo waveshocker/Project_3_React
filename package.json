@@ -13,7 +13,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-validation": "^3.0.7",
-    "spectre.css": "^0.5.8"
+    "spectre.css": "^0.5.8",
+    "validator": "^13.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
