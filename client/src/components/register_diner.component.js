@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
+import { isEmail, isMobilePhone } from "validator";
 
 import AuthService from "../services/auth.service";
 
@@ -21,6 +21,16 @@ const email = value => {
     return (
       <div className="alert alert-danger" role="alert">
         This is not a valid email.
+      </div>
+    );
+  }
+};
+
+const phonenumber = value => {
+  if (!isMobilePhone(value)) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This is not a valid phone number.
       </div>
     );
   }
@@ -223,12 +233,13 @@ export default class RegisterDiner extends Component {
                 <div className="form-group">
                   <label htmlFor="phone_number">Phone Number</label>
                   <Input
-                    type="text"
+                    type="tel"
+                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     className="form-control"
                     name="name"
                     value={this.state.phonenumber}
                     onChange={this.onChangePhoneNumber}
-                    validations={[required, namecheck]}
+                    validations={[required, phonenumber]}
                   />
                 </div>
 
