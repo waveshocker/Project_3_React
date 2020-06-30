@@ -16,7 +16,7 @@ const required = value => {
   }
 };
 
-export default class Login extends Component {
+export default class LoginRestaurant extends Component {
   constructor(props) {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
@@ -140,8 +140,8 @@ export default class Login extends Component {
               </div>
             )}
 
-            <Link to={"/restLogin"} className="app-link">
-              I'm a restaurant owner
+            <Link to={"/restRegister"} className="app-link">
+              Sign up for an account here
             </Link>
 
             <CheckButton
