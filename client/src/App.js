@@ -8,6 +8,10 @@ import AuthService from "./services/auth.service";
 import Login from "./components/login.component";
 import Register from "./components/register.component";
 import RegisterDiner from "./components/register_diner.component";
+
+import LoginRestaurant from "./components/login_restaurant.component";
+import RegisterRestaurant from "./components/register_restaurant.component";
+
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
@@ -119,6 +123,8 @@ class App extends Component {
               <Route exact path={["/", "/home"]} component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={RegisterDiner} />
+              <Route exact path="/restLogin" component={LoginRestaurant} />
+              <Route exact path="/restRegister" component={RegisterRestaurant} />
               <Route exact path="/profile" component={Profile} />
               <Route path="/user" component={BoardUser} />
               <Route path="/mod" component={BoardModerator} />
