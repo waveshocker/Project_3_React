@@ -50,9 +50,8 @@ export default class RegisterRestaurant extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChange = this.onChange.bind(this);
+    
 
     this.state = {
       restName: "",
@@ -69,24 +68,11 @@ export default class RegisterRestaurant extends Component {
       message: ""
     };
   }
-  // Todo: change these into 1 function
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    });
-  }
 
-  onChangeEmail(e) {
-    console.log(e);
+  onChange(e) {
     this.setState({
-      email: e.target.value
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
+      [e.target.name]: e.target.value
+    })
   }
 
   handleRegister(e) {
@@ -153,10 +139,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restName"
                     value={this.state.restUsername}
-                    /*
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                    */
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
                   />
                 </div>
                 
@@ -167,10 +151,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restAddress"
                     value={this.state.restAddress}
-                    /*
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                    */
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
                   />
                 </div>
 
@@ -181,7 +163,7 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="username"
                     value={this.state.username}
-                    onChange={this.onChangeUsername}
+                    onChange={this.onChange}
                     validations={[required, vusername]}
                   />
                 </div>
@@ -193,10 +175,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restEmail"
                     value={this.state.restEmail}
-                    /*
-                    onChange={this.onChangeEmail}
+                    onChange={this.onChange}
                     validations={[required, email]}
-                    */
                   />
                 </div>
 
@@ -207,10 +187,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restUsername"
                     value={this.state.restAddress}
-                    /*
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                    */
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
                   />
                 </div>
 
@@ -221,10 +199,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restContactName"
                     value={this.state.restContactName}
-                    /*
-                    onChange={this.onChangeEmail}
-                    validations={[required, email]}
-                    */
+                    onChange={this.onChange}
+                    //validations={[required, email]}
                   />
                 </div>
 
@@ -235,10 +211,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restEmail"
                     value={this.state.restEmail}
-                    /*
-                    onChange={this.onChangeEmail}
+                    onChange={this.onChange}
                     validations={[required, email]}
-                    */
                   />
                 </div>
 
@@ -249,10 +223,8 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="restUsername"
                     value={this.state.restAddress}
-                    /*
-                    onChange={this.onChangeUsername}
-                    validations={[required, vusername]}
-                    */
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
                   />
                 </div>
 
@@ -263,7 +235,7 @@ export default class RegisterRestaurant extends Component {
                     className="form-control"
                     name="password"
                     value={this.state.password}
-                    onChange={this.onChangePassword}
+                    onChange={this.onChange}
                     validations={[required, vpassword]}
                   />
                 </div>

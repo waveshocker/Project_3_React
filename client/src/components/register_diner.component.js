@@ -70,12 +70,8 @@ export default class RegisterDiner extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
-    this.onChangeAddress = this.onChangeAddress.bind(this);
-    this.onChangeName = this.onChangeName.bind(this);
+    this.onChange = this.onChange.bind(this);
+    
 
     this.state = {
       username: "",
@@ -89,40 +85,10 @@ export default class RegisterDiner extends Component {
     };
   }
 
-  onChangeUsername(e) {
+  onChange(e) {
     this.setState({
-      username: e.target.value
-    });
-  }
-
-  onChangeEmail(e) {
-    this.setState({
-      email: e.target.value
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
-  }
-
-  onChangePhoneNumber(e) {
-    this.setState({
-      phonenumber: e.target.value
-    });
-  }
-
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
-
-  onChangeAddress(e) {
-    this.setState({
-      address: e.target.value
-    });
+      [e.target.name]: e.target.value
+    })
   }
 
   handleRegister(e) {
@@ -189,7 +155,7 @@ export default class RegisterDiner extends Component {
                     className="form-control"
                     name="username"
                     value={this.state.username}
-                    onChange={this.onChangeUsername}
+                    onChange={this.onChange}
                     validations={[required, vusername]}
                   />
                 </div>
@@ -201,7 +167,7 @@ export default class RegisterDiner extends Component {
                     className="form-control"
                     name="email"
                     value={this.state.email}
-                    onChange={this.onChangeEmail}
+                    onChange={this.onChange}
                     validations={[required, email]}
                   />
                 </div>
@@ -213,7 +179,7 @@ export default class RegisterDiner extends Component {
                     className="form-control"
                     name="password"
                     value={this.state.password}
-                    onChange={this.onChangePassword}
+                    onChange={this.onChange}
                     validations={[required, vpassword]}
                   />
                 </div>
@@ -225,7 +191,7 @@ export default class RegisterDiner extends Component {
                     className="form-control"
                     name="name"
                     value={this.state.name}
-                    onChange={this.onChangeName}
+                    onChange={this.onChange}
                     validations={[required, namecheck]}
                   />
                 </div>
@@ -236,9 +202,9 @@ export default class RegisterDiner extends Component {
                     type="tel"
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     className="form-control"
-                    name="name"
+                    name="phonenumber"
                     value={this.state.phonenumber}
-                    onChange={this.onChangePhoneNumber}
+                    onChange={this.onChange}
                     validations={[required, phonenumber]}
                   />
                 </div>
@@ -248,9 +214,9 @@ export default class RegisterDiner extends Component {
                   <Input
                     type="text"
                     className="form-control"
-                    name="name"
+                    name="address"
                     value={this.state.address}
-                    onChange={this.onChangeAddress}
+                    onChange={this.onChange}
                     validations={[required, namecheck]}
                   />
                 </div>
