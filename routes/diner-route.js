@@ -19,12 +19,16 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/diner/signup", function(req, res) {
     console.log(req.body)
-    db.User.create({
+    db.Diner.create({
+      username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      name: req.body.name,
+      phonenumber: req.body.phonenumber,
+      address: req.body.address      
     })
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/api/diner/login");
       })
       .catch(function(err) {
         res.status(401).json(err);
