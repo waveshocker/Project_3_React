@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { isEmail, isMobilePhone } from "validator";
+import { isEmail } from "validator";
 
 import AuthService from "../services/auth.service";
 
@@ -26,31 +26,11 @@ const email = value => {
   }
 };
 
-const phonenumber = value => {
-  if (!isMobilePhone(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This is not a valid phone number.
-      </div>
-    );
-  }
-};
-
 const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
         The username must be between 3 and 20 characters.
-      </div>
-    );
-  }
-};
-
-const namecheck = value => {
-  if (value.length < 1) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The name must be a name.
       </div>
     );
   }
@@ -66,7 +46,7 @@ const vpassword = value => {
   }
 };
 
-export default class RegisterDiner extends Component {
+export default class RegisterRestaurant extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
@@ -74,14 +54,18 @@ export default class RegisterDiner extends Component {
     
 
     this.state = {
-      username: "",
-      email: "",
-      password: "",
+      restName: "",
+      restAddress: "",
+
+      restUsername: "",
+      restEmail: "",
+      restPhone: "",
+      restContactName: "",
+      restContactEmail: "",
+      restContactPhone: "",
+      restPassword: "",
       successful: false,
-      message: "",
-      name: "",
-      phonenumber:"",
-      address:""
+      message: ""
     };
   }
 
@@ -103,12 +87,9 @@ export default class RegisterDiner extends Component {
 
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
-        this.state.username,
-        this.state.email,
-        this.state.password,
-        this.state.name,
-        this.state.phonenumber,
-        this.state.address
+        this.state.restUsername,
+        this.state.restEmail,
+        this.state.restPassword
       ).then(
         response => {
           this.setState({
@@ -152,6 +133,30 @@ export default class RegisterDiner extends Component {
             {!this.state.successful && (
               <div>
                 <div className="form-group">
+                  <label htmlFor="restName">Restaurant Name</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restName"
+                    value={this.state.restUsername}
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="restAddress">Address</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restAddress"
+                    value={this.state.restAddress}
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
+                  />
+                </div>
+
+                <div className="form-group">
                   <label htmlFor="username">Username</label>
                   <Input
                     type="text"
@@ -164,14 +169,62 @@ export default class RegisterDiner extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="restEmail">Restaurant Email</label>
                   <Input
                     type="text"
                     className="form-control"
-                    name="email"
-                    value={this.state.email}
+                    name="restEmail"
+                    value={this.state.restEmail}
                     onChange={this.onChange}
                     validations={[required, email]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="restPhone">Restaurant Phone</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restUsername"
+                    value={this.state.restAddress}
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="restContactName">Supervisor Contact Name</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restContactName"
+                    value={this.state.restContactName}
+                    onChange={this.onChange}
+                    //validations={[required, email]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="restEmail">Restaurant Email</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restEmail"
+                    value={this.state.restEmail}
+                    onChange={this.onChange}
+                    validations={[required, email]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="restPhone">Contact Phone</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="restUsername"
+                    value={this.state.restAddress}
+                    onChange={this.onChange}
+                    //validations={[required, vusername]}
                   />
                 </div>
 
@@ -184,42 +237,6 @@ export default class RegisterDiner extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                     validations={[required, vpassword]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.onChange}
-                    validations={[required, namecheck]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="phone_number">Phone Number</label>
-                  <Input
-                    type="tel"                    
-                    className="form-control"
-                    name="phonenumber"
-                    value={this.state.phonenumber}
-                    onChange={this.onChange}
-                    validations={[required, phonenumber]}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="address">Address</label>
-                  <Input
-                    type="text"
-                    className="form-control"
-                    name="address"
-                    value={this.state.address}
-                    onChange={this.onChange}
-                    validations={[required, namecheck]}
                   />
                 </div>
 

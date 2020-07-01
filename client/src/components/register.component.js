@@ -50,9 +50,8 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChange = this.onChange.bind(this);
+    
 
     this.state = {
       username: "",
@@ -63,22 +62,10 @@ export default class Register extends Component {
     };
   }
 
-  onChangeUsername(e) {
+  onChange(e) {
     this.setState({
-      username: e.target.value
-    });
-  }
-
-  onChangeEmail(e) {
-    this.setState({
-      email: e.target.value
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
+      [e.target.name]: e.target.value
+    })
   }
 
   handleRegister(e) {
@@ -145,7 +132,7 @@ export default class Register extends Component {
                     className="form-control"
                     name="username"
                     value={this.state.username}
-                    onChange={this.onChangeUsername}
+                    onChange={this.onChange}
                     validations={[required, vusername]}
                   />
                 </div>
@@ -157,7 +144,7 @@ export default class Register extends Component {
                     className="form-control"
                     name="email"
                     value={this.state.email}
-                    onChange={this.onChangeEmail}
+                    onChange={this.onChange}
                     validations={[required, email]}
                   />
                 </div>
@@ -169,7 +156,7 @@ export default class Register extends Component {
                     className="form-control"
                     name="password"
                     value={this.state.password}
-                    onChange={this.onChangePassword}
+                    onChange={this.onChange}
                     validations={[required, vpassword]}
                   />
                 </div>
