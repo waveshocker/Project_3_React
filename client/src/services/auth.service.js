@@ -4,8 +4,8 @@ class AuthService {
   login(username, password) {
     return axios
       .post("/api/diner/login", {
-        username,
-        password
+        username: username,
+        password: password
       })
       .then(response => {
         if (response.data.accessToken) {
@@ -20,11 +20,15 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(username, email, password) {
+  register(username, email, password, name, phonenumber, address) {
+    console.log(name)
     return axios.post("/api/diner/signup", {
-      username,
-      email,
-      password
+      username: username,
+      email: email,
+      password: password,
+      name: name,
+      phonenumber: phonenumber,
+      address: address
     });
   }
 

@@ -47,7 +47,7 @@ const vusername = value => {
 };
 
 const namecheck = value => {
-  if (value.length > 1) {
+  if (value.length < 1) {
     return (
       <div className="alert alert-danger" role="alert">
         The name must be a name.
@@ -105,7 +105,10 @@ export default class RegisterDiner extends Component {
       AuthService.register(
         this.state.username,
         this.state.email,
-        this.state.password
+        this.state.password,
+        this.state.name,
+        this.state.phonenumber,
+        this.state.address
       ).then(
         response => {
           this.setState({
@@ -199,8 +202,7 @@ export default class RegisterDiner extends Component {
                 <div className="form-group">
                   <label htmlFor="phone_number">Phone Number</label>
                   <Input
-                    type="tel"
-                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                    type="tel"                    
                     className="form-control"
                     name="phonenumber"
                     value={this.state.phonenumber}
