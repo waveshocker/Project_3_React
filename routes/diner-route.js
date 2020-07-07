@@ -7,10 +7,11 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/diner/login", passport.authenticate("local"), function(req, res) {
-    // Sending back a password, even a hashed password, isn't a good idea
+    // Sending back a password, even a hashed password, isn't a good idea    
     res.json({
-      email: req.user.email,
-      id: req.user.id
+      username: req.user.username,
+      id: req.user.id,
+      email: req.user.email
     });
   });
 
