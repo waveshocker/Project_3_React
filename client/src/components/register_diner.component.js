@@ -81,7 +81,8 @@ export default class RegisterDiner extends Component {
       message: "",
       name: "",
       phonenumber:"",
-      address:""
+      address:"",
+      isrestaurant: "False"
     };
   }
 
@@ -108,7 +109,8 @@ export default class RegisterDiner extends Component {
         this.state.password,
         this.state.name,
         this.state.phonenumber,
-        this.state.address
+        this.state.address,
+        this.state.isrestaurant
       ).then(
         response => {
           this.setState({
