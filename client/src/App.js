@@ -6,7 +6,6 @@ import "./App.css";
 import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
-import Register from "./components/register.component";
 import RegisterDiner from "./components/register_diner.component";
 
 import LoginRestaurant from "./components/login_restaurant.component";
