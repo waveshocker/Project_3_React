@@ -15,8 +15,6 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import ProfileRest from "./components/profile_restaurant.component";
 import BoardUser from "./components/board-user.component";
-import BoardModerator from "./components/board-moderator.component";
-import BoardAdmin from "./components/board-admin.component";
 
 class App extends Component {
   constructor(props) {
@@ -50,32 +48,13 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <Link to={"/"} className="navbar-brand">
-              bezKoder
-            </Link>
+          <nav className="navbar navbar-expand navbar-dark bg-dark">            
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Home
                 </Link>
-              </li>
-
-              {showModeratorBoard && (
-                <li className="nav-item">
-                  <Link to={"/mod"} className="nav-link">
-                    Moderator Board
-                  </Link>
-                </li>
-              )}
-
-              {showAdminBoard && (
-                <li className="nav-item">
-                  <Link to={"/admin"} className="nav-link">
-                    Admin Board
-                  </Link>
-                </li>
-              )}
+              </li>            
 
               {currentUser && (
                 <li className="nav-item">
@@ -126,8 +105,6 @@ class App extends Component {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/profilerest" component={ProfileRest} />
               <Route path="/user" component={BoardUser} />
-              <Route path="/mod" component={BoardModerator} />
-              <Route path="/admin" component={BoardAdmin} />
             </Switch>
           </div>
         </div>
