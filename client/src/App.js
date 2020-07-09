@@ -13,6 +13,7 @@ import RegisterRestaurant from "./components/register_restaurant.component";
 
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
+import ProfileRest from "./components/profile_restaurant.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
@@ -123,6 +124,7 @@ class App extends Component {
               <Route exact path="/restLogin" component={LoginRestaurant} />
               <Route exact path="/restRegister" component={RegisterRestaurant} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/profilerest" component={ProfileRest} />
               <Route path="/user" component={BoardUser} />
               <Route path="/mod" component={BoardModerator} />
               <Route path="/admin" component={BoardAdmin} />

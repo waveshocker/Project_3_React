@@ -30,6 +30,7 @@ module.exports = function(app) {
       isrestaurant: req.body.isrestaurant      
     })
       .then(function() {
+        console.log(res);
         res.redirect(307, "/api/user/login");
       })
       .catch(function(err) {
