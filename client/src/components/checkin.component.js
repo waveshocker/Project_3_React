@@ -9,7 +9,7 @@ export default class CheckIn extends Component {
       super(props);
   
       this.state = {
-        username: "Test2",
+        currentUser: AuthService.getCurrentUser(),
         restaurant: "MCD2"
       };
       this.handleRegister=this.handleRegister.bind(this);
@@ -18,7 +18,7 @@ export default class CheckIn extends Component {
     handleRegister(e) {
         e.preventDefault();        
         LogService.checkin(
-            this.state.username,
+            this.state.currentUser.username,
             this.state.restaurant
         ).then()
       }
