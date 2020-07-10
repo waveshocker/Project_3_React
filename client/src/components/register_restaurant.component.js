@@ -117,6 +117,8 @@ export default class RegisterRestaurant extends Component {
             message: response.data.message,
             successful: true
           });
+          this.props.history.push("/restLogin");
+          window.location.reload();
         },
         error => {
           const resMessage =

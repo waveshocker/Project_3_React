@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service";
+import CheckIn from "../components/checkin.component";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -27,7 +28,8 @@ export default class Profile extends Component {
         <p>
           <strong>Email:</strong>{" "}
           {currentUser.email}
-        </p>        
+        </p>
+      <CheckIn/>
       </div>
     );
   }

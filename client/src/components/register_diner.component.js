@@ -115,8 +115,10 @@ export default class RegisterDiner extends Component {
         response => {
           this.setState({
             message: response.data.message,
-            successful: true
+            successful: true,
           });
+          this.props.history.push("/login");
+          window.location.reload();
         },
         error => {
           const resMessage =
