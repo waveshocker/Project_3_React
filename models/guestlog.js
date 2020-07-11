@@ -15,5 +15,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  GuestLog.associate = function(models) {
+    GuestLog.belongsTo(models.User);
+    GuestLog.belongsTo(models.Restaurant)
+  }
+
   return GuestLog;
 };

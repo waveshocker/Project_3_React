@@ -3,6 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isMobilePhone } from "validator";
+import { Link } from "react-router-dom";
 
 import AuthService from "../services/auth.service";
 
@@ -146,6 +147,13 @@ export default class RegisterDiner extends Component {
             alt="profile-img"
             className="profile-img-card"
           />
+          <h2>Diner Sign Up</h2>
+
+          <div></div>
+          
+          <Link to={"/restRegister"} className="app-link">
+              Restaurant Sign Up
+          </Link>
 
           <Form
             onSubmit={this.handleRegister}

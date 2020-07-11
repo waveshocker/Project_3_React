@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service";
-import CheckIn from "../components/checkin.component";
 
 export default class ProfileRest extends Component {
   constructor(props) {
