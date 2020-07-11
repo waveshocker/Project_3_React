@@ -48,7 +48,21 @@ module.exports = function(app) {
     .catch(function(err) {
       res.status(401).json(err);
     });
-});
+  });
+
+  app.post("/api/user/createrest", function(req, res) {
+    console.log(req.body.restaurant);    
+    db.Restaurant.create({      
+      restaurant: req.body.restaurant,
+      UserId: req.body.id      
+    })
+    .then(function() {        
+      console.log("success");
+    })
+    .catch(function(err) {
+      res.status(401).json(err);
+    });
+  });
 
   // Route for logging user out
   app.get("/logout", function(req, res) {

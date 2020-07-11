@@ -147,7 +147,7 @@ export default class RegisterRestaurant extends Component {
             alt="profile-img"
             className="profile-img-card"
           />
-          <h2>Diner Sign Up</h2>
+          <h2>Restaurant Sign Up</h2>
 
           <div></div>
           

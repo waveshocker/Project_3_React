@@ -10,6 +10,15 @@ class LogService {
     });
   }
 
+  createrest(restaurant, id) {
+    console.log(restaurant);
+    console.log(id);
+    return axios.post("/api/user/createrest", {
+      restaurant: restaurant,
+      id: id
+    });
+  }
+
   getCurrentRestaurant() {
     return JSON.parse(localStorage.getItem('restaurant'));;
   }

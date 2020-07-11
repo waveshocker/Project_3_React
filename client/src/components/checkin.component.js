@@ -7,12 +7,14 @@ import CheckButton from "react-validation/build/button";
 export default class CheckIn extends Component {
     constructor(props) {
       super(props);
+
+      this.handleRegister=this.handleRegister.bind(this);
   
       this.state = {
         currentUser: AuthService.getCurrentUser(),
         restaurant: "MCD2"
       };
-      this.handleRegister=this.handleRegister.bind(this);
+      
     }    
 
     handleRegister(e) {
