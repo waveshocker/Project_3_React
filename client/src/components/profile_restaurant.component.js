@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service";
+import CreateRest from "../components/restcreate.component";
 
 export default class ProfileRest extends Component {
   constructor(props) {
@@ -27,7 +28,8 @@ export default class ProfileRest extends Component {
         <p>
           <strong>Email:</strong>{" "}
           {currentUser.email}
-        </p>        
+        </p>
+      <CreateRest/>      
       </div>      
     );
   }
