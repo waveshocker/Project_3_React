@@ -28,7 +28,7 @@ export default class ProfileRest extends Component {
           <strong>Email:</strong>{" "}
           {currentUser.email}
         </p>        
-      </div>
+      </div>      
     );
   }
 }

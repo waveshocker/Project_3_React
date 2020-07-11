@@ -82,6 +82,7 @@ export default class LoginRestaurant extends Component {
             alt="profile-img"
             className="profile-img-card"
           />
+          <h2>Restaurant Login</h2>
 
           <Form
             onSubmit={this.handleLogin}
@@ -133,9 +134,15 @@ export default class LoginRestaurant extends Component {
               </div>
             )}
 
+                      
+              
             <Link to={"/restRegister"} className="app-link">
               Sign up for an account here
             </Link>
+            <div> </div>  
+            <Link to={"/Login"} className="app-link">
+              I'm a Diner
+            </Link>  
 
             <CheckButton
               style={{ display: "none" }}
