@@ -19,6 +19,14 @@ class LogService {
     });
   }
 
+  getrest() {
+    return axios.get("/api/getrest")
+    .then(response => {
+      return response.json();
+    })
+  }
+  
+
   getCurrentRestaurant() {
     return JSON.parse(localStorage.getItem('restaurant'));;
   }
