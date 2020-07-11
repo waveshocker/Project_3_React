@@ -42,7 +42,7 @@ module.exports = function(app) {
       username: req.body.username,
       restaurant: req.body.restaurant      
     })
-    .then(function() {        
+    .then(function() {
       console.log("success");
     })
     .catch(function(err) {
