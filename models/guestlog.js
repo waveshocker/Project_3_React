@@ -2,7 +2,7 @@
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   var GuestLog = sequelize.define("GuestLog", {
-    // The email cannot be null, and must be a proper email before creation    
+    // Username is for the diner; restaurant is the restaurant ID
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,6 +10,11 @@ module.exports = function(sequelize, DataTypes) {
     },    
     restaurant: {
       type: DataTypes.STRING,
+      allowNull: true,
+      unique: false
+    },
+    checkoutAt: {
+      type: DataTypes.DATE,
       allowNull: true,
       unique: false
     }
