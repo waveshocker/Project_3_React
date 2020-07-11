@@ -53,6 +53,7 @@ class App extends Component {
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
                   Home
+                  
                 </Link>
               </li>            
 
