@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail, isMobilePhone } from "validator";
 import { Link } from "react-router-dom";
+import InPromptuBrand from "./inPromptuBrand";
 
 import AuthService from "../services/auth.service";
 
@@ -142,12 +143,17 @@ export default class RegisterRestaurant extends Component {
     return (
       <div className="col-md-12">
         <div className="card card-container">
+
+          {/* 
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
             className="profile-img-card"
           />
-          <h2>Restaurant Sign Up</h2>
+          */}
+          <InPromptuBrand />
+
+          <p class="text-center">Restaurant Registration</p>
 
           <div></div>
           

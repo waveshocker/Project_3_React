@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AuthService from "../services/auth.service";
 import CreateRest from "../components/restcreate.component";
 import Map from "../components/map.component";
+import QrOutput from "../components/restaurantQrOutput";
 
 
 export default class ProfileRest extends Component {
@@ -37,8 +38,9 @@ export default class ProfileRest extends Component {
 					height='300px'
 					zoom={15}
 				/> 
-        <CreateRest/>      
-           
+        <CreateRest/>
+      <QrOutput/>    
+
       </div>      
     );
   }
