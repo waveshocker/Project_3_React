@@ -31,13 +31,14 @@ export default class ProfileRest extends Component {
           <strong>Email:</strong>{" "}
           {currentUser.email}
         </p>
-      <CreateRest/>      
-      <Map
+        <Map
 					google={this.props.google}
 					center={{lat: 43.6453473, lng: -79.4296353}}
 					height='300px'
 					zoom={15}
-				/>      
+				/> 
+        <CreateRest/>      
+           
       </div>      
     );
   }

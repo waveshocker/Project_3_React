@@ -54,7 +54,9 @@ module.exports = function(app) {
     console.log(req.body.restaurant);    
     db.Restaurant.create({      
       restaurant: req.body.restaurant,
-      UserId: req.body.id      
+      UserId: req.body.id,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
     })
     .then(function() {        
       console.log("success");
