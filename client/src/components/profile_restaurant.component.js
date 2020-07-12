@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service";
 import CreateRest from "../components/restcreate.component";
+import Map from "../components/map.component";
+
 
 export default class ProfileRest extends Component {
   constructor(props) {
@@ -30,6 +32,12 @@ export default class ProfileRest extends Component {
           {currentUser.email}
         </p>
       <CreateRest/>      
+      <Map
+					google={this.props.google}
+					center={{lat: 43.6453473, lng: -79.4296353}}
+					height='300px'
+					zoom={15}
+				/>      
       </div>      
     );
   }
