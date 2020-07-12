@@ -5,6 +5,7 @@ import Input from "react-validation/build/input";
 import LogService from "../services/log.service";
 import CheckButton from "react-validation/build/button";
 
+
 export default class CreateRest extends Component {
     constructor(props) {
       super(props);
@@ -13,21 +14,26 @@ export default class CreateRest extends Component {
 
       this.state = {
         currentUser: AuthService.getCurrentUser(),
-        restaurant: "", 
+        restaurant: "",
+        location: ""
       };      
     }    
 
     handleRegister(e) {
-        e.preventDefault();        
+        e.preventDefault();
+        console.log(this.state.location);                                                 
         LogService.createrest(
             this.state.restaurant,
-            this.state.currentUser.id            
+            this.state.currentUser.id,
+            this.state.location.latLng.lat,
+            this.state.location.latLng.lng          
         ).then()
       }
 
       onChange(e) {
         this.setState({
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
+          location: AuthService.getCurrentLocation()
         })
       }
   

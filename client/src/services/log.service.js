@@ -10,12 +10,16 @@ class LogService {
     });
   }
 
-  createrest(restaurant, id) {
+  createrest(restaurant, id, latitude, longitude) {
     console.log(restaurant);
     console.log(id);
+    console.log(latitude);
+    console.log(longitude);
     return axios.post("/api/user/createrest", {
       restaurant: restaurant,
-      id: id
+      id: id,
+      latitude: latitude,
+      longitude: longitude
     });
   }
 

@@ -17,6 +17,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("location");
   }
 
   register(username, email, password, name, phonenumber, address, isrestaurant) {
@@ -30,10 +31,14 @@ class AuthService {
       address: address,
       isrestaurant: isrestaurant
     });
-  }
+  }  
 
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('user'));;
+  }
+
+  getCurrentLocation() {
+    return JSON.parse(localStorage.getItem('location'));;
   }
 }
 
