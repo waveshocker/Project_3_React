@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 
 import AuthService from "../services/auth.service";
 import { Link } from "react-router-dom";
+import InPromptuBrand from "./inPromptuBrand";
 
 const required = value => {
   if (!value) {
@@ -77,12 +78,17 @@ export default class LoginRestaurant extends Component {
     return (
       <div className="col-md-12">
         <div className="card card-container">
+
+          {/* 
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
             className="profile-img-card"
           />
-          <h2>Restaurant Login</h2>
+          */}
+          <InPromptuBrand />
+
+          <h2 class="text-center">Restaurant Login</h2>
 
           <Form
             onSubmit={this.handleLogin}
@@ -134,15 +140,15 @@ export default class LoginRestaurant extends Component {
               </div>
             )}
 
-                      
-              
+
+
             <Link to={"/restRegister"} className="app-link">
               Sign up for an account here
             </Link>
-            <div> </div>  
+            <div> </div>
             <Link to={"/Login"} className="app-link">
               I'm a Diner
-            </Link>  
+            </Link>
 
             <CheckButton
               style={{ display: "none" }}
