@@ -15,6 +15,7 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import ProfileRest from "./components/profile_restaurant.component";
 import BoardUser from "./components/board-user.component";
+import InPromptuBrand from "./components/inPromptuBrand";
 
 class App extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class App extends Component {
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
-                  Home
+                  <InPromptuBrand />
                   
                 </Link>
               </li>            
