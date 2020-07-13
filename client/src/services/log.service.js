@@ -38,11 +38,12 @@ class LogService {
     })
   }
 
-  getlog(restaurant) {
+  getlog(restaurant, id) {
     console.log(restaurant);
     return axios.get("/api/log_pull", {
       params: {        
-        restaurant: restaurant
+        restaurant: restaurant,
+        id: id
       }
     })
     .then(response => {
