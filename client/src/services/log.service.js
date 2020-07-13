@@ -47,7 +47,7 @@ class LogService {
       }
     })
     .then(response => {
-      localStorage.setItem("log", JSON.stringify(response.data))
+      return response.data
     })
   }
   
@@ -57,9 +57,6 @@ class LogService {
     return JSON.parse(localStorage.getItem('restaurant'));
   }
 
-  getRestaurantLog() {
-    return JSON.parse(localStorage.getItem('log'));
-  }
 }
 
 export default new LogService();

@@ -42,14 +42,6 @@ export default class GuestLog extends Component {
       };
       
     }
-    
-    //check if log is updated, if so display it
-    componentDidUpdate(prevProps) {
-      // Typical usage (don't forget to compare props):
-      if (this.props.userID !== prevProps.userID) {
-        this.fetchData(this.props.userID);
-      }
-    }
 
     handlePull(e) {
         e.preventDefault();
@@ -57,20 +49,22 @@ export default class GuestLog extends Component {
             this.state.restaurant,
             this.state.currentUser.id
         ).then(
-          console.log(LogService.getRestaurantLog()),
-          this.setState({
-            record: LogService.getRestaurantLog()
-          })         
+          res => {
+            console.log(res)
+            this.setState({
+              record: res
+            })
+          }                    
         )       
       }
     
+
     onChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
-    
-      
+    }    
+ 
   
     render() {
         return (       
