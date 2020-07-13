@@ -2,11 +2,13 @@ import axios from "axios";
 
 class LogService {
     
-  checkin(username, restaurant) {
+  checkin(username, restaurant, userid, restaurantid) {
     console.log(restaurant);    
     return axios.post("/api/user/checkin", {
       username: username,
-      restaurant: restaurant
+      restaurant: restaurant,
+      userid: userid,
+      restaurantid: restaurantid
     });
   }
 
@@ -23,16 +25,39 @@ class LogService {
     });
   }
 
-  getrest() {
-    return axios.get("/api/getrest")
+  getrest(latitude, longitude) {
+    console.log(latitude);
+    return axios.get("/api/restaurant_search", {
+      params: {
+      latitude: latitude,
+      longitude: longitude
+      }
+    })
     .then(response => {
-      return response.json();
+      localStorage.setItem("restaurant", JSON.stringify(response.data));      
+    })
+  }
+
+  getlog(restaurant) {
+    console.log(restaurant);
+    return axios.get("/api/log_pull", {
+      params: {        
+        restaurant: restaurant
+      }
+    })
+    .then(response => {
+      localStorage.setItem("log", JSON.stringify(response.data))
     })
   }
   
+  
 
   getCurrentRestaurant() {
-    return JSON.parse(localStorage.getItem('restaurant'));;
+    return JSON.parse(localStorage.getItem('restaurant'));
+  }
+
+  getRestaurantLog() {
+    return JSON.parse(localStorage.getItem('log'));
   }
 }
 

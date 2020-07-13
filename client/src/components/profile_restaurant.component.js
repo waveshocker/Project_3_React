@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import AuthService from "../services/auth.service";
 import CreateRest from "../components/restcreate.component";
 import Map from "../components/map.component";
+import GuestLog from "../components/logpull.component";
 import QrOutput from "../components/restaurantQrOutput";
+
 
 
 export default class ProfileRest extends Component {
@@ -39,6 +41,9 @@ export default class ProfileRest extends Component {
 					zoom={15}
 				/> 
         <CreateRest/>
+
+        <GuestLog/>     
+
       <QrOutput/>    
 
       </div>      

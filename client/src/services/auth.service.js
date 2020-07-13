@@ -18,6 +18,8 @@ class AuthService {
   logout() {
     localStorage.removeItem("user");
     localStorage.removeItem("location");
+    localStorage.removeItem("restaurant");
+    localStorage.removeItem("log");
   }
 
   register(username, email, password, name, phonenumber, address, isrestaurant) {
