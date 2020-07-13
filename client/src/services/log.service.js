@@ -34,7 +34,7 @@ class LogService {
       }
     })
     .then(response => {
-      localStorage.setItem("restaurant", JSON.stringify(response.data));      
+      localStorage.setItem("restaurant", JSON.stringify(response.data))   
     })
   }
 
