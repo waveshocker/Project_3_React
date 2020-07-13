@@ -38,7 +38,7 @@ export default class GuestLog extends Component {
       this.state = {
         currentUser: AuthService.getCurrentUser(),
         restaurant: "",
-        record: [{id: "", username: "", restaurant: "", User: { address: "", phonenumber: "", email: "" }}]
+        record: [{id: "", username: "", restaurant: "", createdAt: "", User: { address: "", phonenumber: "", email: "" }}]
       };
       
     }

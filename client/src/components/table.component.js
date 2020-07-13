@@ -15,6 +15,7 @@ function Table(props) {
           <th scope="col">#</th>
           <th scope="col">UserName</th>
           <th scope="col">Restaurant</th>
+          <th scope="col">Checked In Time</th>
           <th scope="col">Address</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Email</th>           
@@ -26,6 +27,7 @@ function Table(props) {
               <th scope="row">{item.id}</th>
               <td>{item.username}</td>
               <td>{item.restaurant}</td>
+              <td>{item.createdAt}</td>
               <td>{item.User.address}</td>
               <td>{item.User.phonenumber}</td>
               <td>{item.User.email}</td>
