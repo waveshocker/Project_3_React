@@ -92,9 +92,13 @@ module.exports = function(app) {
     console.log(req.query);
     db.GuestLog.findAll({
       where: {
-        restaurant: req.query.restaurant
+        restaurant: req.query.restaurant,        
       },
-      include: [db.User, db.Restaurant]
+      include: [{model: db.User}, 
+        {model: db.Restaurant,
+        where: {
+          UserId: req.query.id
+        }}]      
     })
     .then((result) => (res.send(result)))
     .catch((err) => {

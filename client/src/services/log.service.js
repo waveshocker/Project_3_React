@@ -34,19 +34,20 @@ class LogService {
       }
     })
     .then(response => {
-      localStorage.setItem("restaurant", JSON.stringify(response.data));      
+      localStorage.setItem("restaurant", JSON.stringify(response.data))   
     })
   }
 
-  getlog(restaurant) {
+  getlog(restaurant, id) {
     console.log(restaurant);
     return axios.get("/api/log_pull", {
       params: {        
-        restaurant: restaurant
+        restaurant: restaurant,
+        id: id
       }
     })
     .then(response => {
-      localStorage.setItem("log", JSON.stringify(response.data))
+      return response.data
     })
   }
   
@@ -56,9 +57,6 @@ class LogService {
     return JSON.parse(localStorage.getItem('restaurant'));
   }
 
-  getRestaurantLog() {
-    return JSON.parse(localStorage.getItem('log'));
-  }
 }
 
 export default new LogService();

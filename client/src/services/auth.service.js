@@ -1,11 +1,12 @@
 import axios from "axios";
 
 class AuthService {
-  login(username, password) {    
+  login(username, password, isrestaurant) {    
     return axios
       .post("/api/user/login", {
         username: username,
-        password: password
+        password: password,
+        isrestaurant: isrestaurant
       })
       .then(response => {        
         // if (response.data.accessToken) {
@@ -16,10 +17,7 @@ class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("user");
-    localStorage.removeItem("location");
-    localStorage.removeItem("restaurant");
-    localStorage.removeItem("log");
+    localStorage.clear();
   }
 
   register(username, email, password, name, phonenumber, address, isrestaurant) {

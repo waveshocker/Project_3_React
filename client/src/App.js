@@ -14,7 +14,6 @@ import RegisterRestaurant from "./components/register_restaurant.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import ProfileRest from "./components/profile_restaurant.component";
-import BoardUser from "./components/board-user.component";
 import InPromptuBrand from "./components/inPromptuBrand";
 
 class App extends Component {
@@ -23,9 +22,6 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
-      showModeratorBoard: false,
-      showAdminBoard: false,
-      currentUser: undefined
     };
   }
 
@@ -106,7 +102,6 @@ class App extends Component {
               <Route exact path="/restRegister" component={RegisterRestaurant} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/profilerest" component={ProfileRest} />
-              <Route path="/user" component={BoardUser} />
             </Switch>
           </div>
         </div>

@@ -42,7 +42,8 @@ export default class ProfileRest extends Component {
 				/> 
         <CreateRest/>
 
-        <GuestLog/>     
+        <GuestLog/>
+     
 
       <QrOutput/>    
 
