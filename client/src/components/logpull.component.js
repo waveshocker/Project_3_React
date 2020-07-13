@@ -4,6 +4,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import LogService from "../services/log.service";
 import CheckButton from "react-validation/build/button";
+import Table from "../components/table.component";
+
 
 const required = value => {
     if (!value) {
@@ -36,17 +38,27 @@ export default class GuestLog extends Component {
       this.state = {
         currentUser: AuthService.getCurrentUser(),
         restaurant: "",
+        record: [{id: "", username: "", restaurant: "", User: { address: "", phonenumber: "", email: "" }}]
       };
       
-    }    
+    }
+    
+    //check if log is updated, if so display it
+    componentDidUpdate(prevProps) {
+      // Typical usage (don't forget to compare props):
+      if (this.props.userID !== prevProps.userID) {
+        this.fetchData(this.props.userID);
+      }
+    }
 
     handlePull(e) {
         e.preventDefault();
-        console.log(this.state.restaurant);
         LogService.getlog(
             this.state.restaurant,
             this.state.currentUser.id
-        )        
+        ).then(
+          console.log(LogService.getRestaurantLog())
+        )       
       }
     
     onChange(e) {
@@ -108,6 +120,9 @@ export default class GuestLog extends Component {
               }}
             />
           </Form>
+
+          <Table record = {this.state.record}/>            
+
           </div> 
       
         )}
