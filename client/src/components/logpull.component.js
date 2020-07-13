@@ -57,7 +57,10 @@ export default class GuestLog extends Component {
             this.state.restaurant,
             this.state.currentUser.id
         ).then(
-          console.log(LogService.getRestaurantLog())
+          console.log(LogService.getRestaurantLog()),
+          this.setState({
+            record: LogService.getRestaurantLog()
+          })         
         )       
       }
     
@@ -121,6 +124,7 @@ export default class GuestLog extends Component {
             />
           </Form>
 
+              
           <Table record = {this.state.record}/>            
 
           </div> 
