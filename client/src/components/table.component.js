@@ -15,7 +15,7 @@ function Table(props) {
           <th scope="col">#</th>
           <th scope="col">UserName</th>
           <th scope="col">Restaurant</th>
-          <th scope="col">Checked In Time</th>
+          <th scope="col">Check In Time</th>
           <th scope="col">Address</th>
           <th scope="col">Phone Number</th>
           <th scope="col">Email</th>           
